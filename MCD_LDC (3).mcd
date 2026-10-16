@@ -1,0 +1,55 @@
+:
+RETOUR_DE, 01 MATCH, 01 MATCH
+ACCUEILLIR, 0N STADE, 11 MATCH
+SE_DEPLACER, 0N CLUB, 11 MATCH
+JOUER_A_DOMICILE, 0N STADE, 11 CLUB
+ENTRAINEUR: id_entraineur, nom_entraineur, prenom_entraineur, nationalite_entraineur
+:
+
+:
+ARBITRER, 1N ARBITRE, 1N MATCH: role_arbitre
+MATCH: num_match, date_heure_match, num_journee, affluence, buts_domicile, buts_exterieur
+STADE: id_stade, nom_stade, ville_stade, capacite_stade
+CLUB: id_club, nom_club, pays_club, annee_fondation
+DIRIGER, 1N ENTRAINEUR, 0N CLUB: date_prise_fonction
+:
+
+ARBITRE: id_arbitre, nom_arbitre, prenom_arbitre, nationalite_arbitre
+SURVENIR, _11 EVENEMENT, 1N MATCH
+APPARTENIR, 1N PHASE, 11 MATCH
+RECEVOIR, 0N CLUB, 11 MATCH
+CLASSER, 0N CLUB, 0N PHASE: rang, points
+INSCRIRE, 1N JOUEUR, 0N CLUB, 0N SAISON: num_maillot
+:
+
+:
+:
+EVENEMENT: num_evenement, minute_evenement, type_evenement
+PHASE: id_phase, nom_phase, ordre_phase
+JOUEUR: id_joueur, nom_joueur, prenom_joueur, date_naiss_joueur, nationalite_joueur, poste_joueur
+SAISON: id_saison, libelle_saison, date_debut_saison, date_fin_saison
+:
+
+:
+:
+:
+CONCERNER, 0N JOUEUR, 11 EVENEMENT
+SE_DEROULER, 1N SAISON, 11 PHASE
+:
+:
+
+:
+:
+:
+:
+:
+:
+:
+
+:
+:
+:
+:
+:
+:
+:
