@@ -1,0 +1,130 @@
+Mini-projet Bases de données, partie 1
+Étape 1 : analyse des besoins
+
+Domaine : Ligue des champions (UEFA Champions League)
+IA utilisée : Claude (Anthropic)
+Binôme : Raphaël Simon, Selim Rebai
+
+
+-------------------------------------------------------------------
+LE PROMPT SOUMIS
+-------------------------------------------------------------------
+
+Tu travailles dans le domaine de l'organisation de compétitions de
+football de clubs au niveau continental. Ton organisation a comme
+activité d'organiser et de gérer une seule compétition, la Ligue des
+champions : elle inscrit les clubs qualifiés, construit le calendrier,
+découpe la saison en phases successives, programme et supervise les
+matchs, désigne les arbitres, enregistre les résultats et publie les
+classements. C'est une organisation comme l'UEFA, la CONMEBOL, l'AFC
+ou la FIFA. Les données ont été collectées sur les saisons, les phases
+de la compétition, les clubs engagés, les stades, les joueurs
+inscrits, les entraîneurs, les matchs, les arbitres, les événements de
+jeu (buts et cartons) et les classements. Inspire-toi des sites web
+suivants : https://fr.uefa.com/uefachampionsleague/ et
+https://fr.uefa.com/insideuefa/.
+
+Ton organisation veut appliquer MERISE pour concevoir un système
+d'information. Tu es chargé de la partie analyse, c'est-à-dire de
+collecter les besoins auprès de l'entreprise. Elle a fait appel à un
+étudiant en ingénierie informatique pour réaliser ce projet, tu dois
+lui fournir les informations nécessaires pour qu'il applique ensuite
+lui-même les étapes suivantes de conception et développement de la
+base de données.
+
+D'abord, établis les règles de gestion des données de ton organisation,
+sous la forme d'une liste à puce. Elle doit correspondre aux
+informations que fournit quelqu'un qui connaît le fonctionnement de
+l'entreprise, mais pas comment se construit un système d'information.
+
+Ensuite, à partir de ces règles, fournis un dictionnaire de données
+brutes avec les colonnes suivantes, regroupées dans un tableau :
+signification de la donnée, type, taille en nombre de caractères ou de
+chiffres. Il doit y avoir entre 25 et 35 données. Il sert à fournir des
+informations supplémentaires sur chaque donnée (taille et type) mais
+sans a priori sur comment les données vont être modélisées ensuite.
+
+Fournis donc les règles de gestion et le dictionnaire de données.
+
+
+-------------------------------------------------------------------
+OÙ SE TROUVENT LES 7 ÉLÉMENTS DE RICARDO
+-------------------------------------------------------------------
+
+R, le rôle
+
+   Première phrase : "Tu travailles dans le domaine de l'organisation
+   de compétitions de football de clubs au niveau continental", puis
+   "Tu es chargé de la partie analyse".
+   L'IA incarne le métier et non l'informaticien, ce qui est le point
+   important : on veut des besoins, pas une solution technique.
+
+
+I, les instructions
+
+   Les deux étapes signalées par "D'abord" et "Ensuite".
+   La formulation "à partir de ces règles" oblige la seconde étape à
+   découler de la première, sinon on se retrouve avec un dictionnaire
+   qui n'a plus de rapport avec les règles.
+
+
+C, le contexte
+
+   Fin du premier paragraphe et tout le deuxième : l'activité détaillée
+   de l'organisation, la restriction à une seule compétition, la liste
+   des sujets sur lesquels les données ont été collectées, et le fait
+   que le résultat sera repris par un étudiant dans une démarche
+   MERISE.
+
+
+A, les contraintes additionnelles
+
+   Réparties sur les deux derniers paragraphes.
+   Le nombre de données, entre 25 et 35.
+   Le format en liste à puce.
+   Deux contraintes de registre surtout : "quelqu'un qui connaît le
+   fonctionnement de l'entreprise, mais pas comment se construit un
+   système d'information", qui empêche l'IA de répondre en vocabulaire
+   de modélisation ; et "sans a priori sur comment les données vont
+   être modélisées ensuite", qui lui interdit de glisser des
+   identifiants techniques ou des clés étrangères dans le dictionnaire.
+
+
+R, les références
+
+   Les deux liens UEFA à la fin du premier paragraphe :
+   https://fr.uefa.com/uefachampionsleague/
+   https://fr.uefa.com/insideuefa/
+
+
+D, le rendement désiré
+
+   Imposé deux fois. Liste à puce pour les règles de gestion. Tableau à
+   trois colonnes nommées pour le dictionnaire : signification, type,
+   taille.
+
+
+O, les objectifs
+
+   La dernière phrase, "Fournis donc les règles de gestion et le
+   dictionnaire de données", renforcée par la phrase sur l'étudiant qui
+   doit pouvoir continuer seul la conception.
+
+
+-------------------------------------------------------------------
+NOTE SUR LA MÉTHODE
+-------------------------------------------------------------------
+
+La structure du prompt de base fournie avec le sujet n'a pas été
+modifiée. Seules les parties [A COMPLETER] ont été remplies.
+
+Le prompt a été resoumis une fois. La première version portait sur les
+trois compétitions européennes de clubs et le résultat était trop
+dispersé, avec des règles valables pour une compétition mais pas pour
+les autres. On l'a recentré sur la seule Ligue des champions. Dans la
+même passe, on a ajouté au contexte le fait que l'organisation inscrit
+les clubs qualifiés et désigne les arbitres, parce que la première
+version ne donnait rien sur les listes de joueurs ni sur les rôles
+d'arbitrage.
+
+Le détail de la vérification du résultat se trouve dans le README.md.
