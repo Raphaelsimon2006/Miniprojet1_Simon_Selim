@@ -6,9 +6,8 @@ IA utilisée : Claude (Anthropic)
 Binôme : Raphaël Simon, Selim Rebai
 
 
--------------------------------------------------------------------
-LE PROMPT SOUMIS
--------------------------------------------------------------------
+LE PROMPT SOUMIS :
+
 
 Tu travailles dans le domaine de l'organisation de compétitions de
 football de clubs au niveau continental. Ton organisation a comme
@@ -47,9 +46,9 @@ sans a priori sur comment les données vont être modélisées ensuite.
 Fournis donc les règles de gestion et le dictionnaire de données.
 
 
--------------------------------------------------------------------
-OÙ SE TROUVENT LES 7 ÉLÉMENTS DE RICARDO
--------------------------------------------------------------------
+
+OÙ SE TROUVENT LES 7 ÉLÉMENTS DE RICARDO :
+
 
 R, le rôle
 
@@ -111,9 +110,9 @@ O, les objectifs
    doit pouvoir continuer seul la conception.
 
 
--------------------------------------------------------------------
+
 NOTE SUR LA MÉTHODE
--------------------------------------------------------------------
+
 
 La structure du prompt de base fournie avec le sujet n'a pas été
 modifiée. Seules les parties [A COMPLETER] ont été remplies.
