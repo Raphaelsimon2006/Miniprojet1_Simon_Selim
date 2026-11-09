@@ -1,21 +1,8 @@
--- =====================================================
--- MINI-PROJET TI503N
--- LIGUE DES CHAMPIONS
--- Raphaël Simon / Selim Rebai
--- FICHIER 4 : INTERROGATION DE LA BASE DE DONNEES
--- =====================================================
-
 USE ligue_champions;
-
-
--- =====================================================
--- PARTIE 1 : PROJECTIONS ET SELECTIONS
--- 5 requêtes
--- =====================================================
 
 -- REQUETE 1 :
 -- Afficher tous les clubs par ordre alphabétique.
-
+                                                                      
 SELECT *
 FROM CLUB
 ORDER BY nom_club ASC;
@@ -56,11 +43,10 @@ FROM JOUEUR
 ORDER BY nationalite_joueur;
 
 
--- =====================================================
 -- PARTIE 2 : FONCTIONS D'AGREGATION
 -- GROUP BY ET HAVING
 -- 5 requêtes
--- =====================================================
+
 
 -- REQUETE 6 :
 -- Compter le nombre de clubs par pays.
@@ -119,10 +105,10 @@ HAVING COUNT(*) >= 1
 ORDER BY nombre_evenements DESC;
 
 
--- =====================================================
+
 -- PARTIE 3 : JOINTURES
 -- 5 requêtes
--- =====================================================
+
 
 -- REQUETE 11 :
 -- Afficher chaque match avec les noms des deux clubs.
@@ -142,7 +128,6 @@ ORDER BY M.date_heure_match;
 
 
 -- REQUETE 12 :
--- Afficher les matchs avec leur stade et leur phase.
 
 SELECT M.num_match,
        M.date_heure_match,
@@ -158,7 +143,6 @@ ORDER BY M.date_heure_match;
 
 
 -- REQUETE 13 :
--- Afficher les événements avec le joueur concerné et le match.
 
 SELECT E.num_match,
        E.num_evenement,
@@ -172,7 +156,6 @@ INNER JOIN JOUEUR J
 INNER JOIN `MATCH` M
     ON E.num_match = M.num_match
 ORDER BY E.num_match, E.minute_evenement;
-
 
 
 
@@ -262,3 +245,30 @@ WHERE capacite_stade >= ALL (
 )
 ORDER BY capacite_stade DESC;
 
+USE ligue_champions;
+
+SELECT 'SAISON' AS table_name, COUNT(*) AS total FROM SAISON
+UNION ALL
+SELECT 'STADE', COUNT(*) FROM STADE
+UNION ALL
+SELECT 'CLUB', COUNT(*) FROM CLUB
+UNION ALL
+SELECT 'ENTRAINEUR', COUNT(*) FROM ENTRAINEUR
+UNION ALL
+SELECT 'ARBITRE', COUNT(*) FROM ARBITRE
+UNION ALL
+SELECT 'JOUEUR', COUNT(*) FROM JOUEUR
+UNION ALL
+SELECT 'PHASE', COUNT(*) FROM PHASE
+UNION ALL
+SELECT 'MATCH', COUNT(*) FROM `MATCH`
+UNION ALL
+SELECT 'EVENEMENT', COUNT(*) FROM EVENEMENT
+UNION ALL
+SELECT 'ARBITRER', COUNT(*) FROM ARBITRER
+UNION ALL
+SELECT 'DIRIGER', COUNT(*) FROM DIRIGER
+UNION ALL
+SELECT 'INSCRIRE', COUNT(*) FROM INSCRIRE
+UNION ALL
+SELECT 'CLASSER', COUNT(*) FROM CLASSER;
