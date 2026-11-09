@@ -1,10 +1,4 @@
 
--- =====================================================
--- MINI-PROJET TI503N
--- LIGUE DES CHAMPIONS
--- Raphaël Simon / Selim Rebai
--- =====================================================
-
 CREATE DATABASE IF NOT EXISTS ligue_champions;
 USE ligue_champions;
 
