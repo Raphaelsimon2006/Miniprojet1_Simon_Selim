@@ -3,9 +3,11 @@
 Module TI503N, Bases de données 1.
 Binôme : Raphaël Simon et Selim Rebai.
 
-Ce dépôt contient la partie 1 du mini-projet, donc l'analyse des besoins et le MCD.
+Sommaire :
+la partie 1 du mini-projet
+l'analyse des besoins et le MCD.
 
-## Le domaine choisi
+LE DOMAINE
 
 Une organisation qui gère une compétition européenne de clubs, comme l'UEFA avec la Ligue des champions. Elle inscrit les clubs qualifiés, construit le calendrier, découpe la saison en phases, programme les matchs, désigne les arbitres, enregistre les résultats et publie les classements.
 
@@ -13,11 +15,9 @@ Au départ on avait pris les trois compétitions européennes d'un coup : Ligue 
 
 Les deux sites qu'on a utilisés : https://fr.uefa.com/uefachampionsleague/ pour la compétition elle-même, et https://fr.uefa.com/insideuefa/ pour le fonctionnement de l'organisation.
 
-## Étape 1 : analyse des besoins
-
-### Le prompt
-
-On a repris la base fournie avec le sujet sans toucher à sa structure, en remplissant juste les `[A COMPLETER]`. Il est aussi dans `prompt.txt`.
+1) analyse des besoins
+Le prompt
+Il est aussi dans `prompt.txt`.
 
 > Tu travailles dans le domaine de l'organisation de compétitions de football de clubs au niveau continental. Ton organisation a comme activité d'organiser et de gérer une seule compétition, la Ligue des champions : elle inscrit les clubs qualifiés, construit le calendrier, découpe la saison en phases successives, programme et supervise les matchs, désigne les arbitres, enregistre les résultats et publie les classements. C'est une organisation comme l'UEFA, la CONMEBOL, l'AFC ou la FIFA. Les données ont été collectées sur les saisons, les phases de la compétition, les clubs engagés, les stades, les joueurs inscrits, les entraîneurs, les matchs, les arbitres, les événements de jeu (buts et cartons) et les classements. Inspire-toi des sites web suivants : https://fr.uefa.com/uefachampionsleague/ et https://fr.uefa.com/insideuefa/.
 >
@@ -29,7 +29,7 @@ On a repris la base fournie avec le sujet sans toucher à sa structure, en rempl
 >
 > Fournis donc les règles de gestion et le dictionnaire de données.
 
-### Où on a placé les 7 éléments de RICARDO
+Où on a placé les 7 éléments de RICARDO
 
 **Rôle.** Première phrase, "Tu travailles dans le domaine de l'organisation de compétitions de football de clubs au niveau continental", complétée plus loin par "Tu es chargé de la partie analyse". On voulait que l'IA incarne le métier et pas l'informaticien, sinon elle part direct sur des tables et des clés.
 
@@ -45,7 +45,7 @@ On a repris la base fournie avec le sujet sans toucher à sa structure, en rempl
 
 **Objectif.** La dernière phrase, "Fournis donc les règles de gestion et le dictionnaire de données", qu'on avait déjà annoncée en disant que l'étudiant devait pouvoir continuer seul.
 
-### Ce qu'on a vérifié dans la réponse
+Ce qu'on a vérifié dans la réponse
 
 On a repris le résultat ligne par ligne. Dans l'ensemble ça tenait : 35 données donc dans la fourchette, les trois colonnes demandées, des règles rédigées côté métier sans jamais parler d'entité ni de cardinalité, et aucun identifiant technique dans le dictionnaire. C'était la contrainte la plus facile à rater, donc on a vérifié celle-là en premier.
 
@@ -53,7 +53,7 @@ On a quand même dû tout resoumettre une fois. La première version portait sur
 
 Deux choix du dictionnaire sur lesquels on a hésité. La minute de jeu est sur 3 chiffres et pas 2, pour aller jusqu'à la 120e en prolongation. Et le rang et les points sont là alors qu'on pourrait les recalculer depuis les matchs, mais l'organisation les publie officiellement donc ils font partie de ses données.
 
-### Règles de gestion
+Règles de gestion
 
 **Saison et phases**
 
@@ -113,7 +113,7 @@ Deux choix du dictionnaire sur lesquels on a hésité. La minute de jeu est sur 
 - Les clubs classés de la 9e à la 24e place jouent les barrages.
 - Les clubs classés de la 25e à la 36e place sont éliminés.
 
-### Dictionnaire de données
+Dictionnaire de données
 
 A pour alphabétique, AN pour alphanumérique, N pour numérique, D pour une date (JJ/MM/AAAA), DH pour une date et heure (JJ/MM/AAAA HH:MM).
 
@@ -157,19 +157,19 @@ A pour alphabétique, AN pour alphanumérique, N pour numérique, D pour une dat
 
 35 données.
 
-## Étape 2 : le MCD
+2) le MCD
 
 Fait avec Mocodo. Le fichier source est `MCD_LDC.mcd`, et il y a aussi `MCD_LDC.pdf` pour l'impression.
 
 ![MCD de la Ligue des champions](MCD_LDC.png)
 
-### Les entités
+Les entités
 
 9 entités : `SAISON`, `PHASE`, `MATCH`, `EVENEMENT`, `CLUB`, `STADE`, `JOUEUR`, `ENTRAINEUR`, `ARBITRE`.
 
 On a ajouté des identifiants techniques qui n'étaient pas dans le dictionnaire : `id_saison`, `id_phase`, `id_club`, `id_stade`, `id_joueur`, `id_entraineur`, `id_arbitre`. Le sujet autorise d'ajouter des données, et c'était nécessaire parce qu'aucune donnée métier ne garantit l'unicité. Deux joueurs peuvent être homonymes et nés le même jour, deux stades peuvent porter le même nom dans deux villes différentes. Le seul identifiant qu'on a gardé du dictionnaire est `num_match`.
 
-### Les associations
+Les associations
 
 13 en tout.
 
@@ -181,7 +181,7 @@ Quatre associations portent des données. `INSCRIRE` relie `JOUEUR` (1,N), `CLUB
 
 Restent `SURVENIR` et `RETOUR_DE`, détaillées juste en dessous.
 
-### Les éléments de modélisation avancée
+Les éléments de modélisation avancée
 
 Le sujet en demande au moins deux. On en a trois.
 
@@ -205,7 +205,7 @@ Elle relie `MATCH` à lui-même, 0,1 de chaque côté. C'est le fonctionnement d
 
 Les cardinalités minimales à 0 sont indispensables. Les matchs de phase de ligue et la finale ne font partie d'aucun couple aller-retour, ils doivent pouvoir rester seuls.
 
-### Normalisation
+Normalisation
 
 Tous les attributs sont atomiques, nom et prénom séparés pour chaque personne, pas d'attribut multivalué ni répétitif. La 1FN est donc respectée.
 
@@ -215,13 +215,13 @@ Pas de dépendance transitive non plus. Le point sensible, c'était la ville : o
 
 Il reste deux points dénormalisés exprès. `buts_domicile` et `buts_exterieur` sont dans `MATCH` alors qu'on pourrait les recompter à partir des événements de type but, mais ils correspondent au score officiel homologué, qui fait foi même si un événement n'a pas été saisi. Même raisonnement pour `rang` et `points` dans `CLASSER`.
 
-### Les 35 données du dictionnaire dans le MCD
+Les 35 données du dictionnaire dans le MCD
 
 Elles y sont toutes. Les données 1 à 3 dans `SAISON`, 4 et 5 dans `PHASE`, 6 à 8 dans `CLUB`, 9 à 11 dans `STADE`, 12 à 16 dans `JOUEUR`, 18 à 20 dans `ENTRAINEUR`, 22 à 27 dans `MATCH`, 28 à 30 dans `ARBITRE`, 32 et 33 dans `EVENEMENT`.
 
 Les cinq qui restent sont portées par des associations : le numéro de maillot par `INSCRIRE`, la date de prise de fonction par `DIRIGER`, le rôle de l'arbitre par `ARBITRER`, le rang et les points par `CLASSER`.
 
-### Ce que le MCD ne peut pas exprimer
+Ce que le MCD ne peut pas exprimer
 
 Certaines règles ne se traduisent pas en entité-association. On les note pour les reprendre en contraintes SQL à l'étape 3 :
 
@@ -234,7 +234,7 @@ Certaines règles ne se traduisent pas en entité-association. On les note pour 
 - un match ne peut pas être son propre match retour
 - `points` vaut 3 fois le nombre de victoires plus le nombre de nuls
 
-## Contenu du dépôt
+Contenu du dépôt
 
 - `README.md` : ce fichier
 - `prompt.txt` : le prompt soumis à l'IA et la correspondance RICARDO
