@@ -1,16 +1,7 @@
-
--- =====================================================
--- MINI-PROJET TI503N
--- LIGUE DES CHAMPIONS
--- FICHIER : 2_contraintes.sql
--- Raphaël Simon / Selim Rebai
--- =====================================================
-
 USE ligue_champions;
 
--- =====================================================
+
 -- 1. CONTRAINTES SUR LES CLUBS
--- =====================================================
 
 ALTER TABLE CLUB
 ADD CONSTRAINT chk_annee_fondation
@@ -19,9 +10,9 @@ CHECK (
     OR annee_fondation BETWEEN 1800 AND 2100
 );
 
--- =====================================================
+
 -- 2. CONTRAINTES SUR LES ARBITRES
--- =====================================================
+
 
 ALTER TABLE ARBITRER
 ADD CONSTRAINT chk_role_arbitre
@@ -36,9 +27,9 @@ CHECK (
     )
 );
 
--- =====================================================
+
 -- 3. CONTRAINTES SUR LES EVENEMENTS
--- =====================================================
+
 
 ALTER TABLE EVENEMENT
 ADD CONSTRAINT chk_type_evenement
@@ -53,9 +44,8 @@ CHECK (
     )
 );
 
--- =====================================================
+
 -- 4. TRIGGER : VERIFICATION DES MATCHS
--- =====================================================
 
 DELIMITER $$
 
@@ -109,9 +99,9 @@ BEGIN
 
 END$$
 
--- =====================================================
+
 -- 5. TRIGGER : VERIFICATION DES MATCHS MODIFIES
--- =====================================================
+
 
 DROP TRIGGER IF EXISTS verifier_match_update$$
 
@@ -154,9 +144,9 @@ BEGIN
 
 END$$
 
--- =====================================================
+
 -- 6. TRIGGER : VERIFICATION DU JOUEUR D'UN EVENEMENT
--- =====================================================
+
 
 DROP TRIGGER IF EXISTS verifier_evenement_insert$$
 
@@ -186,9 +176,8 @@ BEGIN
 
 END$$
 
--- =====================================================
+
 -- 7. TRIGGER : VERIFICATION LORS D'UNE MODIFICATION
--- =====================================================
 
 DROP TRIGGER IF EXISTS verifier_evenement_update$$
 
@@ -220,9 +209,8 @@ END$$
 
 DELIMITER ;
 
--- =====================================================
+
 -- 8. VERIFICATION DES CONTRAINTES
--- =====================================================
 
 SHOW CREATE TABLE CLUB;
 SHOW CREATE TABLE ARBITRER;
